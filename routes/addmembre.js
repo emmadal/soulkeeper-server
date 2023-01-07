@@ -3,6 +3,6 @@ const { addMembre } = require("../controllers/addMembreController");
 const { authorizeAccess } = require("../middleware/authorizeAccess");
 const router = express.Router();
 
-router.post("/", authorizeAccess, addMembre);
+router.post("/add-membre", authorizeAccess, addMembre);
 
 module.exports = router

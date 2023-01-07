@@ -3,5 +3,5 @@ const { getCulte } = require("../controllers/getCulteController");
 const { authorizeAccess } = require("../middleware/authorizeAccess");
 const router = express.Router();
 
-router.get("/", authorizeAccess, getCulte);
+router.get("/cultes", authorizeAccess, getCulte);
 module.exports = router;

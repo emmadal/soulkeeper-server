@@ -23,16 +23,16 @@ const villeRoute = require("./routes/villes");
 const userRoute = require("./routes/user");
 
 app.use("/", helloRoute);
-app.use("/login", loginRoute);
-app.use("/add-membre", addMembreRoute);
-app.use("/commune", communeRoute);
-app.use("/cultes", culteRoute);
-app.use("/membres", membreRoute);
-app.use("/pays", paysRoute);
-app.use("/add-pointage", pointageRoute);
-app.use("/stats", statsRoute);
-app.use("/villes", villeRoute);
-app.use("/user/:username", userRoute);
+app.use("/", loginRoute);
+app.use("/", addMembreRoute);
+app.use("/", communeRoute);
+app.use("/", culteRoute);
+app.use("/", membreRoute);
+app.use("/", paysRoute);
+app.use("/", pointageRoute);
+app.use("/", statsRoute);
+app.use("/", villeRoute);
+app.use("/", userRoute);
 
 
 // Swagger config
@@ -47,7 +47,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000",
+        url: "http://apimobile.bigdata-ci.com",
       },
     ],
   },
