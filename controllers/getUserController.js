@@ -1,7 +1,6 @@
 const { Entreprise } = require('../models/models');
 
 const getUser= async (req, res, next) => {
-    console.log(req.path);
   const result = await Entreprise.findOne({
     where: { login: req.params.username }
   });

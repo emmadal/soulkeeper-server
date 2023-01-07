@@ -14,7 +14,7 @@ const addPointage = async (req, res, next) => {
       });
       if (search.length) {
         res.status(400).json({ status: false, message: 'Présence déja confirmée' });
-        next();
+        return;
       } else {
         await Pointage.create(element);
       }
