@@ -20,7 +20,7 @@ const Entreprise = sequelize.define(
   'entreprise',
   {
     identreprises: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
       unique: true
@@ -62,7 +62,7 @@ const Entreprise = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false
     },
-    idlocalites: {
+    idville: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
@@ -230,29 +230,33 @@ const Culte = sequelize.define(
 );
 
 const Ville = sequelize.define(
-  'villes',
+  "villes",
   {
     idville: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
-      unique: true
+      unique: true,
     },
     libelle: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     identreprises: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+    },
+    idpays: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   },
   {
-    tableName: 'villes',
+    tableName: "villes",
     freezeTableName: true,
-    timestamps: false
-  }
+    timestamps: false,
+  },
 );
 
 const Commune = sequelize.define(
@@ -289,7 +293,7 @@ const Pays = sequelize.define(
   'pays',
   {
     idpays: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.SMALLINT,
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
