@@ -5,7 +5,7 @@ const sequelize = new Sequelize(
   process.env.DB_USER,
   process.env.DB_PWD,
   {
-    host: process.env.DB_HOST,
+    host: '127.0.0.1',
     dialect: "mysql",
     pool: {
       max: 5,
@@ -148,7 +148,8 @@ const Membres = sequelize.define(
     },
     contact: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false,
+      unique: true,
     },
     date_naissance: {
       type: DataTypes.STRING,
