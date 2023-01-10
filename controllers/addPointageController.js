@@ -1,29 +1,26 @@
-const { Pointage } = require('../models/models');
+const { Pointage } = require("../models/models");
 
 const addPointage = async (req, res, next) => {
   const { pointage } = req.body;
-  try {
-    for (let index = 0; index < pointage.length; index++) {
-      const element = pointage[index];
-      const search = await Pointage.findAll({
-        where: {
-          date: element.date,
-          idculte: element.idculte,
-          idmembres: element.idmembres
-        }
+  const search = await Pointage.findOne({
+    where: {
+      date: pointage.date,
+      idculte: pointage.idculte,
+      idmembres: pointage.idmembres,
+    },
+  });
+  if (!search) {
+    await Pointage.create(pointage);
+    res.status(200).json({ message: "Bravo, présence confirmée." });
+    next();
+  } else {
+    res
+      .status(404)
+      .json({
+        status: false,
+        message: "Votre présence a déja eté confirmé",
       });
-      if (search.length) {
-        res.status(400).json({ status: false, message: 'Présence déja confirmée' });
-        return;
-      } else {
-        await Pointage.create(element);
-      }
-    }
-    res.status(200).json({ status: true, message: 'Bravo, présence confirmée' });
-  } catch (error) {
-    
   }
-  
 };
 
 exports.addPointage = addPointage;
