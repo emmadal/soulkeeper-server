@@ -11,10 +11,15 @@ const addMembre = async (req, res, next) => {
       res.setHeader("Content-Type", "application/json");
       await Membres.create(req.body);
       res.status(200).json({
+        status: true,
         message: "« Bravo, inscription réussie ». Bienvenus chez vous !",
       });
     }
   } catch (error) {
+      res.status(402).json({
+        status: false,
+        message: error.message,
+      });
     console.log("ERROR Add member: ", error);
   }
 };

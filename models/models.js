@@ -105,7 +105,7 @@ const Pointage = sequelize.define(
       unique: true
     },
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false
     },
     idmembres: {

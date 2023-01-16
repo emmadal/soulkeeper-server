@@ -4,11 +4,9 @@ const addPointage = async (req, res, next) => {
   try {
     const search = await Pointage.findOne({
       where: {
-        [Op.and]: [
-          { date: req.body.date },
-          { idmembres: req.body.idmembres },
-          { idculte: req.body.idculte },
-        ],
+        date: req.body.date,
+        idculte: req.body.idculte,
+        idmembres: req.body.idmembres,
       },
     });
     if (search) {

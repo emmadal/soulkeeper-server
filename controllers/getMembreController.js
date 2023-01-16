@@ -2,7 +2,6 @@ const { getPagination, getPagingData } = require("../utils/pagination");
 const { Membres } = require('../models/models');
 
 const getMembre = async (req, res) => {
-  console.log(req.query)
   const { page, size } = req.query;
   const { limit, offset } = getPagination(Number(page), Number(size));
   const data = await Membres.findAndCountAll({ limit, offset });
