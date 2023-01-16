@@ -2,9 +2,9 @@ const { Entreprise } = require("../models/models");
 const { generateToken } = require("../utils/token");
 
 const getLogin = async (req, res) => {
-  const { login, password } = req.body;
+  const { login } = req.body;
   try {
-    const result = await Entreprise.findOne({ where: { login, password } });
+    const result = await Entreprise.findOne({ where: { login } });
     if (result) {
       const token = generateToken(login);
       const { dataValues } = result;
@@ -16,7 +16,7 @@ const getLogin = async (req, res) => {
       res.status(404).json({ message: "Mot de passe ou Login invalide!" });
     }
   } catch (error) {
-    res.status(404).send(error.message)
+    res.status(404).send(error.message);
   }
 };
 

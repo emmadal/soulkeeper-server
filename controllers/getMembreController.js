@@ -10,6 +10,7 @@ const getMembre = async (req, res) => {
     limit,
     offset,
     where: { identreprises },
+    order: [["nom", "ASC"]]
   });
   res.setHeader("Content-Type", "application/json");
   const response = getPagingData(data, page, limit);
