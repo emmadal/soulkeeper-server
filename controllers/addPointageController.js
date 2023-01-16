@@ -7,6 +7,7 @@ const addPointage = async (req, res, next) => {
         date: req.body.date,
         idculte: req.body.idculte,
         idmembres: req.body.idmembres,
+        identreprises: req.body.identreprises,
       },
     });
     if (search) {
