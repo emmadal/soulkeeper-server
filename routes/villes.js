@@ -3,5 +3,5 @@ const { getVille } = require("../controllers/getVilleController");
 const { authorizeAccess } = require("../middleware/authorizeAccess");
 const router = express.Router();
 
-router.get("/villes", authorizeAccess, getVille);
+router.post("/villes", authorizeAccess, getVille);
 module.exports = router;

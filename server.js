@@ -1,10 +1,12 @@
 require("dotenv").config();
 const express = require("express");
+const helmet = require("helmet");
 const cors = require("cors");
 
 // Express configuration
 const app = express();
-app.use(cors({ origin: "*", methods: ["GET", "POST"] }));
+app.use(helmet.hidePoweredBy());
+app.use(cors({ origin: "*", methods: ["POST"] }));
 app.use(express.json());
 
 // Routes

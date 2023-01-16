@@ -3,5 +3,5 @@ const { getUser } = require("../controllers/getUserController");
 const { authorizeAccess } = require("../middleware/authorizeAccess");
 const router = express.Router();
 
-router.get("/user/:username", authorizeAccess, getUser);
+router.post("/user/:username", authorizeAccess, getUser);
 module.exports = router;
